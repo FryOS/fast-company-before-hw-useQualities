@@ -15,22 +15,23 @@ export const ProfessionProvider = ({ children }) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        if (error !== null) {
-            toast(error);
-            setError(null);
-        }
-    }, [error]);
-
-    useEffect(() => {
-        if (error !== null) {
-            toast(error);
-            setError(null);
-        }
-    }, [error]);
-
-    useEffect(() => {
         getProfessionsList();
     }, []);
+
+    useEffect(() => {
+        if (error !== null) {
+            toast(error);
+            setError(null);
+        }
+    }, [error]);
+
+    // useEffect(() => {
+    //     if (error !== null) {
+    //         toast(error);
+    //         setError(null);
+    //     }
+    // }, [error]);
+
     function errorCatcher(error) {
         const { message } = error.response.data;
         setError(message);
